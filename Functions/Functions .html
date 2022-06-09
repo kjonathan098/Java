@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        A function is a block of organized, reusable code that is used to perform a single, related action. 
+        It is one of the most basic parts of every programming language and softwares.
+        In JavaScript you can declare a function by using the reserved word function
+        */
+        let countryName = "Australia";
+        if (countryName.length > 6) {
+            console.log(countryName + " is a very long country name");
+        }
+        // There are various problems with writing more than one line of code not in a function (DRY role, modularity, abstraction)
+
+        // Let’s wrap the previous code with a function that explains what it does
+
+        function checkCountryName() {
+            let countryName = "Zimbawe";
+            if (countryName.length > 6) {
+                console.log(countryName + " is a very long country name");
+            }
+        }
+
+        checkCountryName(); // will print the message “Australia is a very long country name”
+
+        //What if we want to use this function in more than one place, with different country name on every invocation?
+        // For that we can add arguments to the function - the input of the function
+
+        function checkCountry(countryName, population) {
+            if (countryName.length > 6) {
+                console.log(countryName + " is a very long country name and has a population of " + population + " millions");
+            } else console.log(`${countryName} is a small country name and has a population of ${population} millions`)
+        }
+        checkCountry("Australia", '16'); // will print the message “Australia is a very long country name”
+        checkCountry("Israel", '5'); // what will it print?
+
+
+
+        function sumOfTwoNumbers(x, y) {
+            let result = x + y;
+            console.log('the result of sumOFtWOnUMBER IS ', result);
+        }
+
+        sumOfTwoNumbers(2, 3)
+
+        function sumOfThreeNumbers(x, y, z) {
+            let result = x + y + z;
+            return 'The result of threeNumbers is ' + result;
+        }
+        console.log(sumOfThreeNumbers(1, 2, 3))
+
+        function sayHi(name) {
+            return "Hi " + name;
+            console.log("I will be never reached");
+        }
+
+        console.log(sayHi("James"))
+
+        function subtract(x, y) {
+            let result;
+            if (x > y) {
+                result = x - y;
+            } else {
+                result = y - x;
+            }
+            return result;
+        }
+        console.log('lets start');
+        console.log(subtract(5, 7));
+    </script>
+</body>
+
+</html>

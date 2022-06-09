@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="weekDay">a</div>
+    <script>
+        let dayOfWeek = "Sunday";
+        switch (dayOfWeek) {
+            case "Sunday":
+                console.log("Today is sunday");
+                break;
+            case "Monday":
+                console.log("Today is monday");
+                break;
+            default:
+                console.log("Other day");
+                break;
+        }
+        // Syntax
+        switch (expression) {
+            case value1:
+            //Statements executed when the
+            //result of expression matches value1
+            case value2:
+                [break;]
+                [break;]
+                //Statements executed when the
+                //result of expression matches value2
+                [break;]
+            case valueN:
+                //Statements executed when the
+                //result of expression matches valueN
+                [break;]
+                [default:
+                //Statements executed when none of
+                //the values match the value of the expression
+                [break;]]
+        }
+        // Other Example
+        const expr = 'Papayas';
+        switch (expr) {
+            case 'Oranges':
+                console.log('Oranges are $0.59 a pound.');
+                break;
+            case 'Mangoes':
+            case 'Papayas':
+                console.log('Mangoes and papayas are $2.79 a pound.');
+                // expected output: "Mangoes and papayas are $2.79 a pound."
+                break;
+            default:
+                console.log(`Sorry, we are out of ${expr}.`);
+        }
+
+    </script>
+</body>
+
+</html>

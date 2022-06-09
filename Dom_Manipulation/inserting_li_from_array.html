@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul id="listOfProducts">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        const products = ['Computer', 'Phone', 'Smartwatch'];
+        const listOfProductsElement = document.getElementById('listOfProducts');
+        const productsItems = listOfProductsElement.getElementsByTagName('li');
+        for (let i = 0; i < productsItems.length; i++) {
+            const currentItem = productsItems.item(i);
+            currentItem.innerHTML = products[i];
+        }
+    </script>
+
+</body>
+
+</html>

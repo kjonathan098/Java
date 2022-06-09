@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+
+        In JavaScript, functions are treated like variables. This is called a First-Class Function language
+
+        When we create a function, JavaScript creates a variable with the value of the function code block (just like string, number, boolean…). this is the “function” type
+
+        We can pass functions as arguments! (and more..)
+
+        Using functions as variables allow us to pass them around for callbacks - call a function when something happens.
+
+        In the case of an event listener, we pass a function as the second argument to be called when the event happens.
+
+        */
+
+        // EX 1
+
+        function handleOnButtonClick() {
+            console.log('Hello World');
+            // ... You will probably have more code in this function
+        }
+        const myButton = document.getElementById('myButton');
+        myButton.addEventListener('click', handleOnButtonClick); // handleOnButtonClick is being passed as a callback function to addEventListener
+
+
+
+        // Anonymous Function
+        myButton.addEventListener('click', function () {
+            console.log('Hello World');
+            // ... You will probably have more code in this function
+        });
+
+        // Arroy functions. 
+
+        const myButton = document.getElementById('myButton');
+        myButton.addEventListener('click', () => {
+            // ...
+        });
+
+
+        // Some idiots decided that writing function takes too long so they invented arrow functions which practically is the same as an anynymous functions. But the time youll gain from not typing functions youll waste it on trying to learn about and making your js learning so much harder. So gain or no gain? idk
+
+
+
+
+    </script>
+</body>
+
+</html>

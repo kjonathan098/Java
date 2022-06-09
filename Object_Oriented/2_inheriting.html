@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Let say we want to create a teacher class but they share the same variables as students (name, age,) instead of repeating the code again we 
+        
+        can create a parent classs and pass along whatever variables you want to the children so you dont have to repeat yourself too many times. 
+
+        */
+
+        class Human {
+            constructor(name, lastName, birthDate) {
+                this.name = name
+                this.lastName = lastName
+                this.birthDate = birthDate
+
+            }
+            sayMyName() {
+                console.log('hi my name is HUMAN', this.name, this.lastName)
+            }
+
+        }
+
+        class Students extends Human {
+            constructor(name, lastName, birthDate, favoriteSubject) { // constructor has a variable of the Parent Ellement which sends the info
+                super(name, lastName, birthDate) // JS goes to the parent element puts the things in order sends it back to us. 
+                this.favoriteSubject = favoriteSubject // can add extra varaibles outside of parent element 
+            }
+            tellMe() {
+                console.log(this.name, this.lastName, this.birthDate, this.favoriteSubject) // now you can use the variables and values to do whatever you want 
+            }
+
+        }
+
+        class Teachers extends Human {
+            constructor(name, lastName, birthDate, subjectTeacher) {
+                super(name, lastName, birthDate,)
+                this.subjectTeacher = subjectTeacher
+            }
+            tellMe() {
+                console.log(`hey im a teacher of ${this.subjectTeacher} my name ${this.name, this.lastName, this.birthDate} `)
+            }
+        }
+
+        const student1 = new Students('John', 'Dess', 'Apr', 'coding')
+        student1.sayMyName()
+        student1.tellMe()
+
+        const student2 = new Students('Maria', 'American', 'Aug', 'math')
+        student2.sayMyName()
+        student2.tellMe()
+
+        const teacher1 = new Teachers('Earnie', 'Lass', 'Jan', 'phy')
+        teacher1.sayMyName()
+        teacher1.tellMe()
+
+        const teacher2 = new Teachers('Barn', 'Kong', 'Jun', 'Bio')
+        teacher2.sayMyName()
+        teacher2.tellMe()
+    </script>
+</body>
+
+</html>

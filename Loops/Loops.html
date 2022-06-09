@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //WHILE LOOP
+        let num = 1;
+        while (num <= 4) { // Just like if, but repeats the block while condition is true
+            console.log(`Im in the loop ${num}`);
+            num++;
+            console.log(`I increased num by 1 now num is equal to ${num}`)
+        }
+        // // line 1: declare a variable with the value of 0
+        // line 2: declare a while loop code block (while num is less than 4)
+        // line 3: print to console “I’m in the loop”
+        // line 4: increase num variable by one
+
+        // What will happen?
+
+        //-----------------------------------------------------------------------------------------------//
+
+        // FOR LOOP
+
+        for (let num = 1; num <= 4; num++) {
+            console.log(`Im in the loop ${num}`);
+        }
+        let names = ['Sarah', 'John', 'Rebecca', 'Daniel', 'Rachel'];
+        console.log(names)
+        for (let index = 0; index < names.length; index++) {
+            console.log('index is:', index)
+            let currentName = names[index];
+            console.log(`The index is ${index} this index belongs to ${currentName} `);
+        }
+
+        //-----------------------------------------------------------------------------------------------//
+
+        // FOR OF
+        let people = ['Sarah', 'John', 'Rebecca', 'Daniel', 'Rachel'];
+        for (let currentName of people) {
+            console.log(currentName);
+        }
+
+
+    </script>
+</body>
+
+</html>

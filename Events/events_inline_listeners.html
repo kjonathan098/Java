@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--  Events let us execute code when something happens in the website - usually when the user does something
+    
+    E.g.run a function (that does something) when the user clicks a certain button
+
+    There are many types of events - on click, on mouse over, on key down(typing), and more:  -->
+
+
+    <!-- Inline Events Ex 1 -->
+    <button onclick="alert('Hello World 1')">Click Me 1!</button>
+
+    <!-- Call a function when an event happens EX 2 -->
+    <button onclick="handleOnButtonClick()">Click Me 2!</button>
+
+    <!-- use JavaScript to the same as above to get cleaner code EX 3 -->
+
+    <button id="button3">Click Me 3</button>
+
+    <!-- Anonymous Functions  do the same as EX3 but cleaner code -->
+
+    <button id="button4">Click Me 4</button>
+
+    <!-- Arrrow Functions  do the same as EX4 but cleaner code -->
+    <button id="button5">Click Me 5</button>
+
+
+
+
+
+
+
+
+    <script>
+        // Ex 2
+        function handleOnButtonClick() {
+            alert('Button 2 was clicked')
+        }
+
+
+        // Ex 3
+
+        const button3 = document.getElementById('button3')
+        button3.addEventListener('click', button3WasClicked)
+
+        function button3WasClicked() {
+            alert('button 3 was clicked ')
+        }
+
+        // Ex 4
+
+        const button4 = document.getElementById('button4')
+        button4.addEventListener('click', function () {
+            alert('button 4 was clicked ')
+        })
+        // Ex 5
+
+        const button5 = document.getElementById('button5')
+        button5.addEventListener('click', () => {
+            alert('button 5 was clicked ')
+        })
+
+        let variableX = function () {
+            console.log('hi')
+        }
+
+        let variableY = (x, y) => {
+            console.log(x + y)
+        }
+        variableX()
+        variableY(2, 3)
+
+        setInterval(() => {
+            console.log('hello')
+        }, 5000);
+    </script>
+</body>
+
+</html>

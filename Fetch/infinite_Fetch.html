@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="pokeList"></div>
+
+    <script>
+        let url = "https://pokeapi.co/api/v2/pokemon?limit=5";
+        const pokeList = document.getElementById("pokeList");
+        let loading = false;
+
+        const shouldFetchNextPage = () => {
+            const lastPokemon = pokeList.lastChild;
+            const rect = lastPokemon.getBoundingClientRect();
+            const lastPokemonY = rect.bottom;
+            return lastPokemonY < window.innerHeight;
+        };
+
+        const toggleLoading = () => {
+            loading = !loading;
+            if (loading) {
+                console.log("addding loader...");
+                const loader = document.createElement("div");
+                loader.setAttribute("id", "loader");
+                loader.innerHTML = "Loading...";
+                pokeList.appendChild(loader);
+            } else {
+                console.log("removing loader...");
+                const loader = document.getElementById("loader");
+                pokeList.removeChild(loader);
+            }
+        };
+
+        const fetchPokemons = async () => {
+            if (!url || loading) return;
+            toggleLoading();
+            console.log("fetching pokemons...");
+            const response = await fetch(url);
+            const data = await response.json();
+            const results = data.results;
+
+            for (pokemon of results) {
+                const listItem = document.createElement("div");
+                listItem.innerHTML = pokemon.name;
+                pokeList.appendChild(listItem);
+            }
+            console.log("rendered pokemons");
+
+            url = data.next;
+            toggleLoading();
+            if (shouldFetchNextPage()) {
+                fetchPokemons();
+            }
+        };
+
+        const onScroll = () => {
+            if (shouldFetchNextPage()) fetchPokemons();
+        };
+
+        window.addEventListener("load", () => fetchPokemons());
+        document.addEventListener("scroll", onScroll);
+
+        setInterval(() => { }, 100);
+
+    </script>
+</body>
+
+</html>

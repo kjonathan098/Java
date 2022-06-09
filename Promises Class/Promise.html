@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Promesa {
+            constructor(a, b) {
+                this.a = a
+                this.b = b
+
+                this.ok = true
+            }
+
+            entonces = (callback) => {
+                if (this.ok) {
+                    this.ok = false
+                    return callback("ejecuntando callback", this.a, this.b)
+                }
+            }
+
+            catch = (callback) => {
+                if (!this.ok) {
+                    return callback(this.error)
+                }
+            }
+        }
+
+        const promesita = new Promesa()
+        console.log(promesita.entonces(console.log))
+    </script>
+</body>
+
+</html>

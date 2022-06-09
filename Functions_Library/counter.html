@@ -1,0 +1,26 @@
+<div style="margin-left: 100px; margin-top: 50px; font-size: 40px;">
+    <p>
+        <span>Count:</span> <span id="counterHolder">0</span>
+    </p>
+    <button id="startCountButton" style="font-size: 40px;">Start Count</button>
+</div>
+<script>
+    const counterHolder = document.getElementById('counterHolder');
+    const startCountButton = document.getElementById('startCountButton');
+    let isCounting = false;
+    let counter = 0;
+    let interval;
+    startCountButton.addEventListener('click', () => {
+        if (isCounting) {
+            // clearInterval(interval);
+            startCountButton.innerHTML = 'Start Count';
+        } else {
+            interval = setInterval(() => {
+                counter++;
+                counterHolder.innerHTML = counter;
+            }, 1000);
+            startCountButton.innerHTML = 'Stop Count';
+        }
+        isCounting = !isCounting;
+    });
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let json = '{"name":"Josh", "country":"USA", "age":34}';
+
+        console.log(`here there is one string because we didnt parsed json:`, json) // Error - json is not an object, it is a string
+        let obj = JSON.parse(json);
+
+        console.log(`here we converted the json object to a normal obj in javascript:`, obj)
+        console.log(`now we can acces the object properties using the dot method obj.name is: `, obj.name)
+
+        obj.name // 'Josh' - obj is and object parsed from json
+
+        // JSON.stringify() - turn an obj to a json string representation
+
+        let newObj = { teaml: "barca", player: 'messi', shirt: 10, suck: false }
+        console.log(`this still just a regular js object. Cant send to server:`, newObj)
+
+        let x = JSON.stringify(newObj); // ‘{"name":"Josh", "country":"USA", "age":40}’
+        console.log(`this is newObj stringify to json so you can send to server:`, x)
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*Programming paradigm to represent objects in our program
+        
+        E.g. how do we represent a cat in our code (with its properties and methods/actions)
+        
+        We implement a blueprint of our object using classes, and we create an instance of the object.
+        
+        Each object has methods and properties (fields)*/
+
+        // watch Image in OOP Folder
+
+        class Cat {
+            constructor(name, color) {
+                this.name = name; // this. refers to the const you are creating. (firstCat, myOtherCat)
+                this.color = color;
+            }
+
+            makeSound() {
+                console.log(`Meow, my name is ${this.name}, and my color is ${this.color}`);
+            }
+        }
+
+        const firstCat = new Cat("Garfield", "Ginger")
+        firstCat.makeSound(); // now there is an object called firstCat which has a method (function) inside of it which you can access. 
+        console.log(firstCat)
+        const myOtherCat = new Cat("Toulouse", "Brown");
+        myOtherCat.makeSound(); // "Meow, my name is Toulouse, and my color is Brown"
+        console.log(firstCat)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const pokeFetch = async () => {
+            let response = await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+            let data = await response.json()
+            // alert(data.name)
+        }
+
+        pokeFetch()
+
+        const pikaFetch = async () => {
+            try {
+                let response = await fetch('https://pokeapi.co/api/v2/pokemon/pikachu')
+                let data = await response.json()
+                // alert(data.name)
+            } catch (e) { console.log(e.message) }
+        }
+
+        pikaFetch()
+
+
+        const errorFetch = async () => {
+            let response
+            try {
+                response = await fetch('https://pokeafpi.co/api/v2/pokemon/pikachu')
+            } catch (e) {
+                console.log('fetch error', e.message);
+                return;
+            }
+            let data
+            if (!response.ok) /*servidor funciona pero lo que mandaste no esta bueno*/ {
+                console.log('error ')
+                return
+            }
+            try {
+                data = await response.json()
+                alert(data.name)
+
+            } catch (e) { console.log('json error', e.message) }
+        }
+
+
+        errorFetch()
+    </script>
+</body>
+
+</html>

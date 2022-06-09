@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="calc">
+        <h3>Result: <span id="result"></span></h3>
+        <div>
+            <input type="number" id="addInput"><button id="addButton">+</button>
+        </div>
+        <div>
+            <input type="number" id="subtractInput"><button id="subtractButton">-</button>
+        </div>
+    </div>
+    <script src="calculator.js"></script>
+    <script>
+        const resultElement = document.getElementById('result');
+        latest = 0;
+        document.getElementById('addButton').addEventListener('click', () => {
+            const addInput = document.getElementById('addInput') // users input
+            const addValue = addInput.value
+            const results = 0
+            const result = (addValue) => {
+                results += addValue;
+                return results;
+            } // 
+            resultElement.innerHTML = result;
+        });
+        document.getElementById('subtractButton').addEventListener('click', () => {
+            const subtractInput = document.getElementById('subtractInput')
+            const subtractValue = subtractInput.value
+            const result = function subtract(subtractValue) {
+                latest -= subtractValue;
+                return latest;
+            }
+            resultElement.innerHTML = result;
+        });
+
+
+
+    </script>
+</body>
+
+</html>

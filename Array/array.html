@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let names = ['Sarah', 'John', 'Rebecca', 'Daniel', 'Rachel'];
+
+        console.log(`heres a list of the names in the array: ${names}`)
+        console.log(`this is the number of names in the array: ${names.length}`)
+        console.log(`the index of John in the array is: ${names.indexOf('John')}`)
+        console.log(`the index of Tom in the array is: ${names.indexOf('Tom')} because is non existent`)
+
+        // Accesing the value of ann array by its index
+        console.log(names[0]); // Sarah
+        console.log(names[3]); // Daniel
+        names[3] = 'Jacob';
+        console.log(names[3]); // Jacob
+        names.push('Arielle'); // pushing a new value to the end. 
+
+
+        // Arrays are zero based index, meaning that the first element index is 0, the second is 1, etc.
+        // You can access elements in an array - array[index]
+        // You can assign new values to elements in an array 
+
+        //-----------------------------------------------------------------------------------------------//
+
+
+        // Iterating over array
+
+        // we can use the for loop to create an index and use the method of .length to determine until when the loop has to finish
+
+        let names = ['Sarah', 'John', 'Rebecca', 'Daniel', 'Rachel'];
+        console.log(names)
+        for (let index = 0; index < names.length; index++) {
+            console.log('index is:', index)
+            let currentName = names[index];
+            console.log(`The index is ${index} this index belongs to ${currentName} `);
+        }
+
+
+        //-----------------------------------------------------------------------------------------------//
+        // For Of 
+
+        let people = ['Sarah', 'John', 'Rebecca', 'Daniel', 'Rachel'];
+        for (let currentName of people) {
+            console.log(currentName);
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let myCar = {
+            name: 'corolla',
+            year: 2018,
+            isElectric: false,
+        };
+
+
+        console.log(myCar.name); // corolla
+        if (!myCar.isElectric) {
+            console.log('Switch to a Tesla');
+        }
+
+        // You can access object properties with a dot (.) and the property key after it:  object.propertyKey
+
+
+        myCar.manufacturer = 'Toyota';
+        console.log(myCar.manufacturer); // Toyota
+        myCar.name = "prius";
+        console.log(myCar.name); // prius
+
+//         You can assign new properties to an object
+// You can even re - assign values to existing properties
+// Try logging the entire object - what do you get ?
+
+
+    </script>
+</body>
+
+</html>

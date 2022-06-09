@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+       To create OOP through funcntions you need to create an object inside the function and pass along the variables you want and ifnally return this OBJ
+
+       */
+
+        function createStudent(firstName, lastName, favoriteSubject) { // here we are creating new instances with different values passed from outside
+            let objectStudent = {} // the object helps encapuslate all the variables and methods to be accessed from each new variable
+            objectStudent.name = firstName
+            objectStudent.lastname = lastName
+            objectStudent.favSubject = favoriteSubject
+            objectStudent.sayHi = () => {
+                console.log(`Hi my name is ${objectStudent.name} ${objectStudent.lastname} my favorie classs is ${objectStudent.favSubject}`)
+            }
+            return objectStudent // here objectStudent will have all these propierties that can be assign to a new variable and then use the dot to access any variables you want 
+        }
+
+        const elisha = createStudent('Elisha', 'salvadore', 'math')
+        console.log('elisha as an object', elisha)
+        elisha.sayHi() // elisha broken down 
+
+        const maria = createStudent('Maria', 'Salome', 'Coding')
+        console.log('maria as an object', maria)
+        maria.sayHi() // maria broken down 
+
+        /*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
+        /*
+          A simpler way of doing this instead of having to create an object is by using this shortcut using the "new" keyword and we dont have to return anything 
+    
+    
+           */
+
+        function CreateStudent2(firstName, lastName, favoriteSubject) {
+            this.firstName = firstName
+            this.lastName = lastName
+            this.favoriteSubject = favoriteSubject
+            this.sayHi = () => {
+                console.log(`CreateStudent2 Hi my name is ${this.firstName} ${this.lastName} my favorie classs is ${this.favoriteSubject}`)
+
+            }
+        }
+        const juana = new CreateStudent2('Juana', 'Dess', 'bio')
+        console.log('CreateStudent2 juana as an object', juana)
+        juana.sayHi()
+
+
+    </script>
+</body>
+
+</html>

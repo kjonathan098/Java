@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="myElement">
+        <!-- <span>Im here now created through JS</span> -->
+        <img src="" alt="my image">
+    </div>
+    <div id="myOtherElement">
+    </div>
+    <div id="peoplesNames"></div>
+    <div id="list">
+    </div>
+
+    <script>
+        const myElement = document.getElementById('myElement');
+        myElement.innerHTML = "<span>I'm here now, Hello</span>";
+
+        const myNewElement = document.getElementById('myOtherElement')
+        myNewElement.innerHTML = "<br><div> This is my <b>second</b> added element</div>"
+
+        const idList = document.getElementById('list')
+        const ul = document.createElement('ul')
+        idList.appendChild(ul)
+        ul.innerHTML = 'Hello'
+
+
+        // Logre hacer un UL adentro de mi DIV pero no logro crear un li adentro de i UL
+        const li = document.createElement('li')
+        ul.appendChild('li')
+        li.textContent = "Hello"
+
+
+
+    </script>
+</body>
+
+</html>
