@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			/*
+
+			An important concept in OOP is how to hide certain properties of methods to the outside. Only accesible in the inside
+
+			Just like a dvd player that has a complex logic board hidden inside and have only the basic buttons showing (play, pause, etc)
+
+
+			To hide stuff from the outside is very simple.. just create local variables and methods.
+
+			    ex const hello = () => {
+			        let name = 'maria'
+			    }
+
+			    maria is not accessible anywere else
+
+
+			A - function Circle (radius) {
+			    this.radius = radius
+			    this.defaultLocation = {x: 0 , y: 0}
+
+			    this.computeLocation : function (factor) {
+			        ....
+			    }
+
+			    this.draw : function () {
+			        this.computeLocation(3)
+			    }
+
+			}
+
+			    WITH THIS EXAMPLE EVEN THOUGH WE WANT   this.defaultLocation & this.computeLocation to no be accecible in the outse we could acces it like this
+
+			    const newCircle = new Circle(4)
+			    newCircle.defaultLocation={x:4, y:4}
+			    newCircle.computeLocation(5)
+
+
+			         B - To avoid this use local var in your constructor func that are only available to that scope
+
+			         function Circle(radius) {
+				this.radius = radius
+				let defaultLocation = {x: 0, y: 0}
+
+				let computeLocation = function (factor) {
+					console.log(factor)
+				}
+
+				this.draw = function () {
+					computeLocation(3)
+				}
+			}
+
+
+
+			*/
+
+			function Circle(radius) {
+				this.radius = radius
+				this.defaultLocation = {x: 0, y: 0}
+
+				this.computeLocation = function (factor) {
+					console.log(factor)
+				}
+
+				this.draw = function () {
+					this.computeLocation(3)
+				}
+			}
+
+			const circleOne = new Circle()
+			circleOne.computeLocation(9)
+
+			function CircleTwo(radius) {
+				this.radius = radius
+				let defaultLocation = {x: 0, y: 0}
+
+				let computeLocation = function (factor) {
+					console.log(factor)
+				}
+
+				this.draw = function () {
+					computeLocation(3)
+				}
+			}
+
+			const circleTwo = new CircleTwo(1)
+			console.log(circleTwo.defaultLocation) // will throw undefined on console log
+			console.log(circleTwo.radius, 'radius') // all good
+
+			// excercise
+
+			function Stopwatch() {
+				this.duration = 0
+				let running = false
+
+				this.start = function (duration) {
+					if (!running) {
+						running = !running
+						setInterval(function () {
+							this.duration++, 1000
+						
+						})
+						return
+					}
+					console.log('stop watch is running ')
+				}
+				this.stop = function (duration) {
+					if (running) {
+						running = !running
+						this.duration = this.duration
+						console.log(this.duration)
+						return
+					}
+					console.log('stop watch is already on pause ')
+				}
+				this.reset = function (duration) {
+					this.duration = 0
+					console.log('reset ')
+				}
+			}
+
+			const sw = new Stopwatch()
+		</script>
+	</body>
+</html>

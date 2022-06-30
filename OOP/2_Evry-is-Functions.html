@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			/*
+
+Something cool to learn is that everything we did in the past was actually using a constructor function under the hood to created 
+
+
+A - When we declare a new string 
+
+    let name = 'John'
+
+    Under the hood JS was executing a const function like this 
+
+    const name = new String("John")
+
+    you can view it by declaring a new var and in the web console type 
+
+    var.constructor
+
+
+B - To take one level deeper in reality function are OBJ 
+
+    This object has many properties and methods and one of those methods is a constructor to create a new function
+
+    const sayHi () => {
+        console.log('hello')
+    }
+
+    sayHi.(all the props of this object)
+
+    so every
+
+*/
+
+			let string = 'John'
+			let number = 3
+			let trueFalse = true
+
+			const sayHi = () => {
+				console.log('hello')
+			}
+
+			console.log(sayHi.name, 'say Hi name ')
+			console.log(sayHi.length, 'say Hi name ')
+			console.log(sayHi.prototype, 'say Hi name ')
+			console.log(sayHi.constructor, 'say Hi name ')
+
+            
+		</script>
+	</body>
+</html>

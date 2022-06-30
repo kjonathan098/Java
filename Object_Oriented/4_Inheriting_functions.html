@@ -1,40 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+	<body>
+		<script>
+			function ParentHuman(firstName, lastName) {
+				this.firstName = firstName
+				this.lastName = lastName
+				this.sayHi = () => {
+					console.log(`Human methos.. Hey my name is ${this.firstName} ${this.lastName}`)
+				}
+			}
 
-<body>
-    <script>
-        function ParentHuman(firstName, lastName) {
-            this.firstName = firstName
-            this.lastName = lastName
-            this.sayHi = () => {
-                console.log(`Human methos.. Hey my name is ${this.firstName} ${this.lastName}`)
-            }
-        }
+			function ChildrenStudent(firstName, lastName, favoriteSubject) {
+				ParentHuman.call(this, firstName, lastName)
+				this.favoriteSubject = favoriteSubject
+				this.sayHi = () => {
+					console.log(`hi my name is student ${this.firstName} ${this.lastName} my favorite subject is ${favoriteSubject}`)
+				}
+			}
 
-        function ChildrenStudent(firstName, lastName, favoriteSubject) {
-            ParentHuman.call(this, firstName, lastName)
-            this.favoriteSubject = favoriteSubject
-            this.sayHi = () => {
-                console.log(`hi my name is student ${this.firstName} ${this.lastName} my favorite subject is ${favoriteSubject}`)
-            }
-        }
+			const jorge = new ChildrenStudent('jorge', 'rybar', 'coding')
+			jorge.sayHi()
 
-        const jorge = new ChildrenStudent('jorge', 'rybar', 'coding')
-        jorge.sayHi()
-
-        const elias = new ChildrenStudent('elias', 'maca', 'bio')
-        elias.sayHi()
-
-        
-
-    </script>
-</body>
-
+			const elias = new ChildrenStudent('elias', 'maca', 'bio')
+			elias.sayHi()
+		</script>
+	</body>
 </html>

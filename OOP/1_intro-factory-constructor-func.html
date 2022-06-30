@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			/*
+
+			Why OOP.
+
+			Well is a way of coding that helps with not having the create spagheti languages (in short)
+
+			Able to encapsualte related var and methods in one place
+
+			Extremely important to learn
+
+
+			There are a few topics here and they seemed reduntant but its important to go over them bc it sets up to understand the logic of OOP
+
+			A - It all starts when creating an object literall just the normal way you create an OBJ
+
+				const user = {name: 'John', hobbies: 'basketball' sayHi: ()=> {console.log('hello')}}
+
+					- Now this is all good but lets say you want to create a new user (youll need to repeat everything)
+
+						const user2 = {name: 'Maria', hobbies: 'painting' sayHi: ()=> {console.log('hello')}}
+
+					- Moreover lets say you made a mistake now there are multiple places you need to re-edit your code.
+
+					- It would be much simpler to have one source of generic truth and create multiple different instances
+
+
+			B - There are two solutions to this
+
+				- Using factory functions
+				- Constructor functions
+
+
+			C - Fact Func . We can create a function that returns and obj with all the things we need
+
+				const createUser = (name, hobbies) => {
+					return {
+						name,
+						hobbie,
+						sayHi: ()=> {
+							console.log('hello')
+							}
+						}
+				}
+
+			D - Constructor Func. A bit harder to understand but with this teq. your are avoiding using the window obj which is global
+
+				1) Start by defining a func with Upper Case
+
+					const AnotherUserConstructor =(name, hobbies)=> {}
+
+				2) Now to set the key value pairs you use the this
+
+				
+
+					* what this does is set the prop of this obj
+					* this is a reference to the obj that is executing this piece of code
+					* when you create a new instance under the hood JS creates an empty object. This is what this is referencing to
+					* Then basically your just adding var using the obj."newValue" syntax 
+
+						function AnotherUserConstructor(name, hobbie) {
+							this.name = name
+							this.hobbie = hobbie
+							this.sayHi = function () {
+								console.log(`hello my name is ${this.name}`)
+							}
+						}
+
+
+				IMPORTANT I THINK YOU CANT CREATE ANONYMOUS CONSTRUCTOR FUNCTIONS
+
+						const AnotherUserConstructor =(name, hobbie)=> {
+							this.name = name
+							this.hobbie =hobbie
+							this.sayHi : ()=> {
+								console.log('Hello')
+							}
+					}
+
+				NOT VALID 
+
+
+			E - create a new circle by declaring your constant and adding a new word before executing the func
+
+					const userFour = new AnotherUserConstructor('Juana', 'Football')
+					userFour.sayHi()
+
+
+
+
+
+
+			*/
+
+			// Not good
+			const userOne = {
+				name: 'John',
+				hobbies: 'basketball',
+				sayHi: () => {
+					console.log('hello')
+				},
+			}
+			const userTwo = {
+				name: 'John',
+				hobbies: 'basketball',
+				sayHi: () => {
+					console.log('hello')
+				},
+			}
+
+			// Factory Functions
+			const createUser = (name, hobbie) => {
+				return {
+					name,
+					hobbie,
+					sayHi: () => {
+						console.log('HelloOOOO')
+					},
+				}
+			}
+
+			// Constructor Functions
+			const userThree = createUser('Pedro', 'Golf')
+			userThree.sayHi()
+
+			function AnotherUserConstructor(name, hobbie) {
+				this.name = name
+				this.hobbie = hobbie
+				this.sayHi = function () {
+					console.log(`hello my name is ${this.name}`)
+				}
+			}
+
+			const userFour = new AnotherUserConstructor('Juana', 'Foootball')
+			userFour.sayHi()
+		</script>
+	</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		/*
+    Inhericance is a core concept of OOP that enables on obj to take mehtods and properties from another another obj (parent object)
+
+    This makes it easy to re-use code in multiple parts of the application
+
+    Ex we have a parent method called 
+
+    function Human(name, lastName, age){
+        this.name = name
+        this.lastName = lastName
+
+        calculateAge = function(age){
+            const age = currentYear - birthYear
+            return age 
+        }
+
+    }
+
+    Now we can create a student or teacher object and inheirt name, lastName, calculateAge from Human function (no need to write this again)
+
+
+Another important concept in OOP is Prototype which means the parent component we can call this Object Base 
+
+    Example create and obj 
+
+    let obj = {}
+
+    if you log obj youll see one of the properties is [[Prototype]]
+
+Object Base is the root of all objects. ObjBase doesnt have a prototype or a parent 
+
+A - SO WHAT PROTOTYPICAL INHERITANCE - how can you access ojb.keys if you have defined keys? 
+
+    A ) when we access a property or method on a obj. JS first looks for that property or method on that obj itself 
+    B ) If it cant find it then it looks at the proto (parent) of that obj all the way to the root of that object (prototype)
+
+B - Multilevel Inheritance 
+
+    there can be multilevels of inheritance for example when decalring an array you will have a chain that looks like this 
+
+    A) const users = [] -> length: 0 [[Prototype]]: Array(0)
+    B) [[Prototype]]: Array(0) -> [[Prototype]]: Object
+
+    so here you can see that users have a proto of array which in it self has a parent of obj (which is the root)
+
+
+    
+C - SOO! The whole point of understanding Protype is the idea that you can write functions of properties in the root and save space by not having every instance re-write all the objects (imagine you have 1000 instances with 1000 functions everyone re-writing them each time)
+
+
+    Lets Do it 
+
+    function Human(name, lastName){
+        this.name = name
+        this.lastName = lastName
+
+        sayHello = function (){
+            console.log(`hi my name is {this.name}`)
+        }
+    }
+
+D) - Access the root and add the function sayHello to the prototype 
+
+    Human.prototype.sayHello = function (){
+            console.log(`hi my name is {this.name}`)
+        }
+
+
+    
+    */
+
+		let proto = {}
+		console.log(proto)
+		const arrayEx = []
+
+		// function Human(name, lastName) {
+		// 	this.name = name
+		// 	this.lastName = lastName
+
+		// 	this.sayHello = function () {
+		// 		console.log(`hi my name is ${this.name}`)
+		// 	}
+		// }
+
+		// const pedro = new Human('Pedro', 'Aguirre')
+		// pedro.sayHello()
+
+		function HumanTwo(name, lastName) {
+			this.name = name
+			this.lastName = lastName
+		}
+
+		HumanTwo.prototype.sayHello = function () {
+			console.log(`hi my name is ${this.name} ${this.lastName}`)
+		}
+
+		const juan = new HumanTwo('Juan', 'Maracana')
+		juan.sayHello()
+	</script>
+</html>
