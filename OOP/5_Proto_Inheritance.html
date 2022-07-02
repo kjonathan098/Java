@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			/*
+        
+        In this lesson Mosh takes thing a bit further.. He creates a shape constructor and adds a duplicate function in its proto
+
+        Then creates a circle constructor and instead of defining the duplicate function again just inherits it from the shape constructor 
+
+        A - Create your parent proto 
+
+            function Shape() {}
+			    Shape.prototype.duplicate = function () {
+				console.log('duplicating ')
+			}
+
+			const newShape = new Shape()
+			console.log(newShape)
+
+        B - Create your child 
+
+        	function Circle(radius) {
+				this.radius = radius
+			}
+
+			const newCircle = new Circle(1)
+			console.log(newCircle.radius)
+
+        C - What I think were doing now is replacing the Circle prototype base with the Shape base that includes the new function
+
+
+            Circle.
+        
+        D - So we are actually re-setting the protype meaning were erasing the constructor thats why you need to re-create the constructor again manually 
+
+            Circle.prototype.constructor = Circle
+
+        */
+
+			function Shape() {}
+			Shape.prototype.duplicate = function () {
+				console.log('duplicating ')
+			}
+
+			const newShape = new Shape()
+			console.log(newShape)
+
+			function Circle(radius) {
+				this.radius = radius
+			}
+
+			Circle.prototype = Object.create(Shape.prototype)
+			Circle.prototype.constructor = Circle
+
+			const newCircle = new Circle(1) 
+			console.log(newCircle)
+		</script>
+	</body>
+</html>
