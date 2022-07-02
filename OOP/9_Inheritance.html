@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			/*
+
+			     Now lets see how we can inherit props from a parent functional obj to a child
+
+			     A - Start br writing your parent class
+
+			     class Human(){
+			         constructor(name, age){
+			             this.name =name
+			             this.age = age
+			         }
+			         eat(){
+			             log('eating...')
+			         }
+
+			     }
+
+			     B - Create your child component
+
+			     class Student(){
+			         constructor(sport){
+			             this.sport = sport
+			         }
+			         playSport(){
+			             log('playing.. sport')
+			         }
+			     }
+
+			     C - To incorporate age and name from human just write extends "name of class"
+
+			       class Student extends Human(){
+			         constructor(sport){
+			             this.sport = sport
+			         }
+			         playSport(){
+			             log('playing.. sport')
+			         }
+			     }
+
+			     D - In our example we see that the Parent class needs two vars in order to this you need to call the Parent constructor method inside the child
+
+
+			       class Student extends Human(){
+			         constructor(sport , age, name){
+			             super(name, age)
+			             this.sport = sport
+			         }
+			         playSport(){
+			             log('playing.. sport')
+			         }
+			     }
+
+			     */
+			class Human {
+				constructor(name, age) {
+					this.name = name
+					this.age = age
+				}
+				eat() {
+					console.log('eating...')
+				}
+			}
+
+			class Student extends Human {
+				constructor(sport, name, age) {
+					super(name, age)
+					this.sport = sport
+					this.sing = function () {
+						console.log('singing...')
+					}
+				}
+				playSport() {
+					console.log('playing.. sport')
+				}
+			}
+
+			const newStudent = new Student('Basket', 'Pedro', 23)
+			console.log(newStudent)
+			newStudent.eat()
+			newStudent.playSport()
+		</script>
+	</body>
+</html>

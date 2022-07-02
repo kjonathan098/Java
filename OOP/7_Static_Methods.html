@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			/*
+        
+        So far we have learned how to create methods (proto or object) but in the instance itself 
+
+        const newHuman = new Human
+        newHuman.walk
+
+        We have a another concept called static methods which are methods defined in the class itself not in the instance 
+
+            EX 
+
+            - Math.floor
+            - Math.random
+            - Math.max
+
+            This are all static methods found in the class Math usually used for utility functions
+
+
+        Lets try it 
+
+        A - create a normal class 
+
+            class Human {
+                constructor(name){
+                    this.name =name
+                }
+                walk(){
+                    log('walking...')
+                }
+
+            }
+
+        B - Create a static method in the class by simply adding the static keyword 
+
+            class Human {
+                constructor(name){
+                    this.name =name
+                }
+                walk(){
+                    log('walking...')
+                }
+                static eat(){
+                    log('eating...')
+                }
+
+            }
+        
+        C - Now this method is not gonna be available in the new instance created 
+
+        const juan = new Human 
+        juan.eat() = ERROR
+
+        D - You can invoke by calling the class and accessing the method 
+
+        Human.eat()
+        
+        
+        */
+
+			class Human {
+				constructor(name) {
+					this.name = name
+				}
+				walk() {
+					console.log('walking...')
+				}
+				static eat(food) {
+					console.log(`eating...${food}`)
+				}
+			}
+		</script>
+	</body>
+</html>

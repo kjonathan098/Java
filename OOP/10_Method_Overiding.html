@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			/*
+
+			     Just as earlier were gonna see how to overide methods inherited. Lets say you have a human method of eating but in lets say some instances need to change the behavoiour of the class cases you need to modify this
+
+
+			     A - Start by decalring your classes
+
+			     class Human{
+			             eat(){
+			                 console.log('eatting...')
+			             }
+
+			     }
+
+			     class Student extends Human {
+			         study(){
+			             console.log('studying...')
+			         }
+			     }
+
+			     B - To overide a parent method just call the method and change it
+
+			     class Student extends Human {
+			         eat(){
+			             console.log('cant eat !')
+			         }
+			         study(){
+			             console.log('studying...')
+			         }
+			     }
+
+			     * Since JS goes down the tree looking for the first instance of the method once it arrives to the child it will stop there even though it exist in the parent one as well
+
+
+
+			     */
+
+			const student1 = {name: 'Mario', isAlergic: true}
+
+			class Human {
+				eat() {
+					console.log('eatting...')
+				}
+			}
+
+			class studentAlergic extends Human {
+				eat() {
+					console.log('cant eat !')
+				}
+				study() {
+					console.log('studying...')
+				}
+			}
+
+			class Student extends Human {
+				study() {
+					console.log('studying...')
+				}
+			}
+
+			const newStudent = new Student()
+		</script>
+	</body>
+</html>

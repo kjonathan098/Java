@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			/*
+
+			     Now that weve learned how actual constructor object work lets see how classes work in JS IS6 we have classes that are synthetic sugar to write functional objects and implement inheretance much easier
+
+
+			     CONSTRUCTOR FUNCTION
+
+			     function Human(name){
+			         this.name = name
+			         this.walk = function(){
+			             log('walking...')
+			         }
+			     }
+
+			     ES6 CLASSES
+
+			 A - Start with the class keyword, name of class and {} (this is called the body of the class )
+
+			     class Human { }
+
+
+			 B - Now we need to write our constructor method
+
+			     class Human {
+			         constructor(name){
+			             this.name = name
+			         }
+
+			      }
+
+			 C - There are two way to write methods
+
+			      1) In the body of the class which will write the method in the prototype
+			      2) In the constructor method which will be added in the object itself
+
+
+			 D - To write a proto method follow this syntax
+
+			       class Human {
+			         constructor(name){
+			             this.name = name
+			         }
+
+			         walk(){
+			             log('walking...')
+			         }
+
+			      }
+
+			 E - Write a method in the Instance
+
+			         class Human {
+			         constructor(name){
+			             this.name = name
+			             this.eat = function(){
+			                 log('eating..')
+			             }
+			         }
+
+			         walk(){
+			             log('walking...')
+			         }
+
+			      }
+
+
+
+
+			     */
+
+			class Human {
+				constructor(name, food) {
+					this.name = name
+					this.eat = function () {
+						console.log(`eating ${this.food}`)
+					}
+				}
+				walk() {
+					console.log('walking...')
+				}
+			}
+
+			const pedro = new Human('Pedro', 'Pizza')
+			console.log(pedro)
+		</script>
+	</body>
+</html>
